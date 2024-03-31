@@ -13,9 +13,15 @@
         <form action="{% url 'register' %}" method="post">
             {% csrf_token %}
             <div class="form-group">
-                <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" required>
+                <label for="name">Enter your name:</label>
+                <input type="text" id="name" name="name" required>
             </div>
+            <div class="form-group">
+                <label for="surname">Enter your surname:</label>
+                <input type="text" id="surname" name="surname" required>
+            </div>
+
+
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>

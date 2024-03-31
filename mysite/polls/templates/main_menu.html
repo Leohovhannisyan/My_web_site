@@ -100,21 +100,25 @@
 <body>
     <div class="container">
         <div class="account-menu">
-            <div class="logo">{{ user_first_name }}</div>
+            <div class="logo"> Welcome {{ user_first_name }}</div>
             <div class="menu-items">
                 <a href="#">News</a>
-                <a href="#">Friends</a>
                 <a href="#">Chats</a>
                 <a href="#">Groups</a>
                 <div class="dropdown">
                     <a href="#" class="dropdown-toggle">Account</a>
                     <div class="dropdown-content">
-                        <a href="#">Profile</a>
+                        <a href="{% url 'profile_info' %}">Profile</a>
                         <a href="#">Friends</a>
                         <a href="#">Groups</a>
                         <a href="#">Chats</a>
                     </div>
                 </div>
+                {% if user_image %}
+                <img src="{{ user_image.url }}" alt="User Profile Image">
+                {% else %}
+                <p>No profile image uploaded yet</p>
+                {% endif %}
                 <form action="{% url 'user_log_out' %}" method="post">
                     {% csrf_token %}
                     <button type="submit" class="logout-btn">Log Out</button>

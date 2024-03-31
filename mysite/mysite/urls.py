@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from polls.views import log, register,main_menu, reg, log_in, user_log_out
+from polls.profile import profile_info, profile_data
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', log, name='log'),
@@ -24,5 +25,8 @@ urlpatterns = [
     path('check/', reg,name="reg"),
     path("register",register, name ='register'),
     path("log_in",log_in,name="log_in"),
-    path("user_log_out", user_log_out, name="user_log_out")
+    path("user_log_out", user_log_out, name="user_log_out"),
+    path("profile/",profile_info, name="profile_info"),
+    path("page/", profile_data, name="profile_data")
 ]
+
