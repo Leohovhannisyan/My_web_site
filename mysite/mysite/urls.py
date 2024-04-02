@@ -15,8 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from polls.views import log, register,main_menu, reg, log_in, user_log_out
-from polls.profile import profile_info, profile_data
+from django.conf import settings
+from django.conf.urls.static import static
+from polls.apies.user import register, log_in, user_log_out
+from polls.views  import main_menu, log, reg
+from polls.apies.profile import profile_info, profile_data
+from polls.apies.group import group_menu, create_group_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', log, name='log'),
@@ -27,6 +31,9 @@ urlpatterns = [
     path("log_in",log_in,name="log_in"),
     path("user_log_out", user_log_out, name="user_log_out"),
     path("profile/",profile_info, name="profile_info"),
-    path("page/", profile_data, name="profile_data")
+    path("page/", profile_data, name="profile_data"),
+    path("group/", group_menu, name="group_menu"),
+    path("mm", create_group_view, name="create_group_view"),
 ]
 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

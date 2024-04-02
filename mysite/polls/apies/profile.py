@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseBadRequest
-from .models import PollUser
+from polls.models import PollUser
 from django.shortcuts import redirect
-from .models import UserImage
-from .image import  resize_image
+from polls.models import UserImage
+
 def profile_info(request):
     return render(request,'profile.html')
 
@@ -24,15 +24,10 @@ def profile_data(request):
             puser.age = age
             puser.country = country
             puser.city = city
+            puser.user_image = user_image
             puser.save()
             user.save()
 
-            try:
-                img = UserImage.objects.get(user=user)
-                img.user_image = user_image
-            except UserImage.DoesNotExist:
-                img = UserImage(user=user, user_image=user_image)
-                img.save()
 
             return render(request, "main_menu.html")
         else:
