@@ -6,7 +6,6 @@ from django.shortcuts import redirect
 from django.contrib.auth import authenticate, logout
 from django.urls import reverse
 from polls.models import PollUser
-from polls.models import UserCount
 from polls.group import  Group
 
 
@@ -24,9 +23,6 @@ def register(request):
         user.last_name = last_name
         user.save()
         PollUser(user=user).save()
-        user_count, created = UserCount.objects.get_or_create(pk=1)
-        current_count = User.objects.count()
-        user_count.update(current_count)
 
         return render(request,"log_in.html")
 

@@ -6,7 +6,6 @@ from django.shortcuts import redirect
 from django.contrib.auth import authenticate, logout
 from django.urls import reverse
 from .models import PollUser
-from .models import UserCount
 from .group import  Group
 
 def log(request):

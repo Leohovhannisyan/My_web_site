@@ -1,3 +1,4 @@
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -112,7 +113,7 @@
                 {% if user_image %}
                 <img src="{{ user_image.url }}" alt="User Profile Image">
                 {% else %}
-                <p>No profile image uploaded yet</p>
+                <img src="{% static 'images/profile_image.jpg' %}"  alt="Profile Image">
                 {% endif %}
                 Welcome {{ user_first_name }}
             </div>

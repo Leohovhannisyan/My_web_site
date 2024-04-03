@@ -19,7 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from polls.apies.user import register, log_in, user_log_out
 from polls.views  import main_menu, log, reg
-from polls.apies.profile import profile_info, profile_data
+from polls.apies.profile import profile_info, profile_data, customize_profile
 from polls.apies.group import group_menu, create_group_view
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,7 +33,8 @@ urlpatterns = [
     path("profile/",profile_info, name="profile_info"),
     path("page/", profile_data, name="profile_data"),
     path("group/", group_menu, name="group_menu"),
-    path("mm", create_group_view, name="create_group_view"),
+    path("mainn/", create_group_view, name="create_group_view"),
+    path("add", customize_profile, name="customize_profile"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
