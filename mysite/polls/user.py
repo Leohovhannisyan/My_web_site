@@ -8,7 +8,6 @@ class PollUser(models.Model):
     country = models.CharField(max_length=120,default="Default country")
     city = models.CharField(max_length=120,default="Default city")
     user_image = models.ImageField(default="default image")
-    preferences = models.CharField(max_length=120,default="No prefrences yet")
     def __str__(self):
         return "{} ({})".format(self.user.first_name, self.user.email)
 

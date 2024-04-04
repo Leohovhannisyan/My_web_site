@@ -4,7 +4,7 @@ from .user import User
 
 class UserImage(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    user_image = models.ImageField(default="defualt img")
+    user_image = models.ImageField(default=None)
 
 
 @admin.register(UserImage)

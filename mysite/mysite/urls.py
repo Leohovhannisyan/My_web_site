@@ -21,6 +21,7 @@ from polls.apies.user import register, log_in, user_log_out
 from polls.views  import main_menu, log, reg
 from polls.apies.profile import profile_info, profile_data, customize_profile
 from polls.apies.group import group_menu, create_group_view
+from polls.apies.post import  post_menu, submit_post
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', log, name='log'),
@@ -35,6 +36,8 @@ urlpatterns = [
     path("group/", group_menu, name="group_menu"),
     path("mainn/", create_group_view, name="create_group_view"),
     path("add", customize_profile, name="customize_profile"),
+    path("post_menu/", post_menu, name="post_menu"),
+    path("submit/",submit_post,name='submit_post'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,4 +1,5 @@
 {% load static %}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -104,6 +105,21 @@
         .logout-btn:hover {
             background-color: #d32f2f;
         }
+        
+        /* Create post button styling */
+        .create-post-btn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        
+        .create-post-btn:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -121,27 +137,15 @@
                 <a href="#">News</a>
                 <a href="#">Chats</a>
                 <a href="{% url 'group_menu' %}">Groups</a>
-                <div class="dropdown-content">
-                    {% if groups %}
-                    <h2>Your Groups</h2>
-                    <ul>
-                        {% for group in groups %}
-                            <li>{{ group.name }}</li>
-                        {% endfor %}
-                    </ul>
-                    {% else %}
-                    <p>No groups found.</p>
-                    {% endif %}
-                </div>
                 <div class="dropdown">
                     <a href="#" class="dropdown-toggle">Account</a>
                     <div class="dropdown-content">
                         <a href="{% url 'profile_info' %}">Profile</a>
                         <a href="#">Friends</a>
-                        
-                        <a href="">Chats</a>
+                        <a href="#">Chats</a>
                     </div>
                 </div>
+                <a href="{% url 'post_menu' %}" class="create-post-btn">Create Post</a>
                 <form action="{% url 'user_log_out' %}">
                     {% csrf_token %}
                     <button type="submit" class="logout-btn">Log Out</button>
@@ -151,3 +155,4 @@
         <!-- Your page content goes here -->
     </div>
 </body>
+</html>
