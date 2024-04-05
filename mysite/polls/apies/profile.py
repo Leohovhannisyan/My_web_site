@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseBadRequest
 from polls.models import PollUser
 from django.shortcuts import redirect
-from polls.models import UserImage
 from polls.models import Post
 def profile_info(request):
     user = User.objects.get(username=request.session.get("user_name"))
