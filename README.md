@@ -1,7 +1,7 @@
 Social Media Website Documentation: 
 
 Key Features
-1)USer creation: Create account to interact and use our platform(COMPLETED)
+1)User creation: Create account to interact and use our platform(COMPLETED)
 1)Profile Creation: Users can create personalized profiles to showcase their identity, interests, and activities on the platform 
 2)News Feed:  It display all new and information about recent updates and upcoming events in our platform.
 3)Posting and Sharing: Users can create and share posts, photos and links with their connections and followers.
