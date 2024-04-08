@@ -127,16 +127,23 @@
         <div class="account-menu">
             <div class="logo">
                 {% if user_image %}
-                <img src="{{ user_image.url }}" alt="User Profile Image">
+                <img src="{{ user_image.url }}">
                 {% else %}
-                <img src="{% static 'images/profile_image.jpg' %}"  alt="Profile Image">
+                <img  src="{% static 'images/profile_image.jpg' %}"  alt="Profile Image">
                 {% endif %}
                 Welcome {{ user_first_name }}
             </div>
             <div class="menu-items">
                 <a href="#">News</a>
                 <a href="#">Chats</a>
-                <a href="{% url 'group_menu' %}">Groups</a>
+                <div class="dropdown">
+                    <a href="{% url 'group_menu' %}" class="dropdown-toggle">Groups</a>
+                    <div class="dropdown-content">
+                        {% for group in groups %}
+                            <a href="#">{{ group.name }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
                 <div class="dropdown">
                     <a href="#" class="dropdown-toggle">Account</a>
                     <div class="dropdown-content">
@@ -151,8 +158,3 @@
                     <button type="submit" class="logout-btn">Log Out</button>
                 </form>
             </div>
-        </div>
-        <!-- Your page content goes here -->
-    </div>
-</body>
-</html>

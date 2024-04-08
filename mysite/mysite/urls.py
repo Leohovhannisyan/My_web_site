@@ -17,11 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from polls.apies.user import register, log_in, user_log_out
+from polls.api.user import register, log_in, user_log_out
 from polls.views  import main_menu, log, reg
-from polls.apies.profile import profile_info, profile_data, customize_profile
-from polls.apies.group import group_menu, create_group_view
-from polls.apies.post import  post_menu, submit_post
+from polls.api.profile import profile_info, profile_data, customize_profile
+from polls.api.group import group_menu, create_group_view
+from polls.api.post import  post_menu, submit_post
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', log, name='log'),
