@@ -1,11 +1,12 @@
 from django.db import models
-from  .user import PollUser
+from  .user import FriendFusionUser
+
 from django.contrib import admin
 class Post(models.Model):
     title = models.CharField(max_length=120)
     topic = models.CharField(max_length=120)
     image = models.ImageField(default=None)
-    author = models.ForeignKey(PollUser, on_delete=models.CASCADE)
+    author = models.ForeignKey(FriendFusionUser, on_delete=models.CASCADE)
     like = models.IntegerField(default=0)
     dislike = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)

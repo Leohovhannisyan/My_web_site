@@ -1,4 +1,4 @@
-Social Media Website Documentation: 
+"FriendFusion" Website Documentation: 
 
 Project Description:
 A social media website is an online platform for users to create profiles and share content with others. Users can connect with friends, engage in interactions such as likes and comments, and join communities based on shared interests. These platforms often feature news feeds to keep users updated on their connections' activities.
@@ -53,23 +53,63 @@ Api-s about profile
 9) customize_profile - renders template to customize user profile  and add info to PollUser obj
 
 
-Database:
-	User 
+Database: 
+	1)FriendFusionUser:
+	  user - OnetoOneField
+	  subscription - CharField
+	  age - IntegerField
+	  country - CharField
+	  city - CharField
+	  user_image - ImageField
 	
-	PollUser
+	2)Posts
+	  title - CharField
+	  topic - CharField
+	  image - ImageField
+	  author - ForeignKey
+	  like - IntegerField
+	  dislik - IntegerField
+	  created_at - DateTimeField
 	
-	Posts
+	3)Groups
+	  name - CharField
+	  members - ManyToMany
+	  admins - ManyToMany
+	  
+	4)Friendship
+	  user_1 - ForeignKey
+	  user_2 - ForeignKey
+	  status - CharField
+	  
+	5)Question
+	  qusetion_text - Charfield
+	  pub_date - DatetimeField
+	  
 	
-	Groups
+	6)Choice
+	  question - Foreign key
+	  choice_text - CharField
+	  votes - IntegerField
 	
-	
-	GroupMember
-	
-	Friendship
-	
-	Question
-	
-	Choice
-	
-	Quiz
-
+	7)Quiz
+	  answer_1 - CharField
+	  answer_2 - CharField
+	  answer_3 - CharField
+          answer_4- CharField
+          correct_answer - CharField
+          
+       8) Comment
+          user - ForeignKey
+          text - CharField
+          created at - DatetimeField
+          updated at - DatetimeField
+          
+       9) Notification
+          user - OnetoOneField
+          notfication_text
+          
+       10) Achivments
+          achievement_1 - CharField
+          achievement_2 - CharField
+          
+          

@@ -1,11 +1,10 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect
-from polls.models import PollUser
+from polls.models import FriendFusionUser
 from django.shortcuts import redirect
 from django.contrib.auth import authenticate, logout
 from django.urls import reverse
-from polls.models import PollUser
 from polls.group import  Group
 
 
@@ -22,7 +21,7 @@ def register(request):
         user.first_name = first_name
         user.last_name = last_name
         user.save()
-        PollUser(user=user).save()
+        FriendFusionUser(user=user).save()
 
         return render(request,"log_in.html")
 

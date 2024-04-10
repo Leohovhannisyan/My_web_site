@@ -9,10 +9,10 @@
 </head>
 <body>
     <h1>User Profile</h1>
-    <form method="post" action="{% url 'profile_data' %}">
+    <form method="post" action="{% url 'profile_data' %}" enctype="multipart/form-data">
         {% csrf_token %}
         <label>Upload Profile Image:</label>
-        <input type="file" accept="image/jpeg" id="image" name="image"><br><br>
+        <input type="file" id="image" name="image" accept="image/*" required><br><br>
         <label for="name">Email:</label><br>
         <input type="text" id="email" name="email"><br><br>
         <label for="surname">Age:</label><br>

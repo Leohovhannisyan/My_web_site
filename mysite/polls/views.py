@@ -1,11 +1,10 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import PollUser
+from .models import FriendFusionUser
 from django.shortcuts import redirect
 from django.contrib.auth import authenticate, logout
 from django.urls import reverse
-from .models import PollUser
 from .group import  Group
 
 def log(request):
@@ -16,12 +15,12 @@ def reg(request):
 def main_menu(request):
     user_first_name = request.session.get('user_name')
     user = User.objects.get(username=user_first_name)
-    poll_user = PollUser.objects.get(user=user)
+    poll_user = FriendFusionUser.objects.get(user=user)
     user_image = None
     try:
-        img = PollUser.objects.get(user=User.objects.get(username=user_first_name))
+        img = FriendFusionUser.objects.get(user=User.objects.get(username=user_first_name))
         user_image = img.user_image
-    except PollUser.DoesNotExist:
+    except FriendFusionUser.DoesNotExist:
         pass
     groups = Group.objects.filter(admins=poll_user)
     context = {

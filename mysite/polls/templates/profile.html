@@ -1,53 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
-    <style>
-        /* Add your CSS styles here */
-        .profile-image {
-            max-width: 200px;
-            border-radius: 50%;
-        }
-        .preferences {
-            margin-left: 20px;
-        }
-    </style>
-</head>
-<body>
-    <h1>{{ user.username }}'s Profile</h1>
-    <div class="profile-image-container">
-        <img src="/static/images/profile_image.jpg" alt="Profile Image" class="profile-image">
-    </div>
-    <div>
-    {% if email and age and country and city%}
-        <p><strong>Email:</strong> {{ email }}</p>
-        <p><strong>Age:</strong> {{ age }}</p>
-        <p><strong>County:</strong> {{ country }}</p>
-        <p><strong>City:</strong> {{ city }}</p>
-        <p><strong>Friends:</strong></p>
-        <p><strong>Groups:</strong></p>
-    {% else %}
-        <p><strong>Email:</strong></p>
-        <p><strong>Age:</strong></p>
-        <p><strong>County:</strong></p>
-        <p><strong>City:</strong></p>
-         <p><strong>Friends:</strong></p>
-        <p><strong>Groups:</strong></p>
- 
-    {% endif %}
-
-            
-            
-            
-       
-    </div>
-    <div>
-        
-         <a href="{% url 'customize_profile' %}">
-         <button>Customize</button>
-    </a>
-    </div>
-</body>
-</html>
+<form action="{% url 'customize_profile' %}"  method="post">
+     {% csrf_token %}
+    <!-- Your form fields here -->
+    <button type="submit">Submit</button>
+</form>
